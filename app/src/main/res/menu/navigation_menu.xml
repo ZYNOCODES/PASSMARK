@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="DEPARTEMENT :">
+        <menu>
+            <item android:id="@+id/menuinformatique"
+                android:title="informatique" />
+            <item android:id="@+id/menumathematique"
+                android:title="mathematique"/>
+            <item android:id="@+id/menuelectronique"
+                android:title="electronique"/>
+            <item android:id="@+id/menuchimie"
+                android:title="chimie"/>
+            <item android:id="@+id/menuphysique"
+                android:title="physique"/>
+            <item android:id="@+id/menumecanique"
+                android:title="mecanique"/>
+        </menu>
+    </item>
+
+</menu>
