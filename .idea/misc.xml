@@ -6,10 +6,17 @@
         <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/drawable/circle.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/activity_main.xml" value="0.1787037037037037" />
         <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_blank.xml" value="0.1787037037037037" />
-        <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_firstyear_math_info.xml" value="0.1787037037037037" />
+        <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_chimie.xml" value="0.1787037037037037" />
+        <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_electronic.xml" value="0.1787037037037037" />
+        <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_firstyear_math_info.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_info_department.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_intrologo.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_math_department.xml" value="0.1787037037037037" />
+        <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_mecanique.xml" value="0.1787037037037037" />
+        <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_physique.xml" value="0.1787037037037037" />
         <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_secondyear_info.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/fragment_thirdyear_info.xml" value="0.1787037037037037" />
         <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/layout_navigation_logo.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/layout/navigation_logo.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/passmark/app/src/main/res/menu/navigation_menu.xml" value="0.1787037037037037" />

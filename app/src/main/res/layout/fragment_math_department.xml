@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InfoDepartmentFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MathDepartmentFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_marginTop="40dp"
             android:fontFamily="@font/lcdmonobold"
             android:letterSpacing="0.01"
-            android:text="departement d'informatique"
+            android:text="departement de Mathematique"
             android:textAlignment="center"
             android:textColor="@color/black1"
             android:textSize="20dp"
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/lcdmono2ultra"
-                android:text="2eme annee informatique"
+                android:text="2eme annee Mathematique"
                 android:textAlignment="center"
                 android:textColor="@color/black1"
                 android:textSize="15sp" />
@@ -96,7 +96,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3eme annee informatique"
+                android:text="3eme annee Mathematique"
                 android:textColor="@color/black1"
                 android:textAlignment="center"
                 android:textSize="15sp"
@@ -104,5 +104,6 @@
                 android:layout_gravity="center"/>
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </FrameLayout>
