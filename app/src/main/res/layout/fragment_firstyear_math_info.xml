@@ -7,6 +7,7 @@
     tools:context=".FirstyearMathInfoFragment"
     android:background="@color/purple3"
     android:layout_gravity="center">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -223,19 +224,22 @@
                                         app:strokeWidth="1dp"
                                         app:strokeColor="@color/purple1"
                                         android:layout_marginBottom="15dp">
+
                                         <EditText
+                                            android:text=""
                                             android:id="@+id/ExamenAnalyse"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:background="@color/trancparent"
-                                            android:hint="Examen"
-                                            android:padding="2dp"
                                             android:layout_gravity="center"
+                                            android:background="@color/trancparent"
+                                            android:fontFamily="@font/lcdmonobold"
                                             android:gravity="center"
-                                            android:textSize="8sp"
+                                            android:hint="Examen"
+                                            android:inputType="number|text"
+                                            android:padding="2dp"
                                             android:textAlignment="center"
                                             android:textColor="@color/purple1"
-                                            android:fontFamily="@font/lcdmonobold"/>
+                                            android:textSize="8sp" />
                                     </com.google.android.material.card.MaterialCardView>
                                     <com.google.android.material.card.MaterialCardView
                                         android:theme="@style/Theme.MaterialComponents.DayNight"
@@ -245,23 +249,27 @@
                                         android:elevation="5dp"
                                         app:strokeWidth="1dp"
                                         app:strokeColor="@color/purple1">
+
                                         <EditText
+                                            android:text=""
                                             android:id="@+id/TdAnalyse"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:background="@color/trancparent"
-                                            android:hint="td"
-                                            android:padding="2dp"
                                             android:layout_gravity="center"
+                                            android:background="@color/trancparent"
+                                            android:fontFamily="@font/lcdmonobold"
                                             android:gravity="center"
-                                            android:textSize="8sp"
+                                            android:hint="td"
+                                            android:inputType="number|text"
+                                            android:padding="2dp"
                                             android:textAlignment="center"
                                             android:textColor="@color/purple1"
-                                            android:fontFamily="@font/lcdmonobold"/>
+                                            android:textSize="8sp" />
                                     </com.google.android.material.card.MaterialCardView>
                                 </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/CoefAnalyse"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -275,18 +283,20 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditAnalyse"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="6"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="6"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyAnalyse"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -381,6 +391,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/CoefAlgebre"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -395,19 +406,21 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditAlgebre"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:layout_marginBottom="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="5"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="5"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyAlgebre"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -431,6 +444,7 @@
                         android:layout_column="1">
 
                         <TextView
+                            android:id="@+id/Creditfondamentale11"
                             android:layout_width="54dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="1dp"
@@ -447,6 +461,7 @@
                             android:textSize="10sp" />
 
                         <TextView
+                            android:id="@+id/Moyfondamentale11"
                             android:layout_width="59dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -604,6 +619,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/CoefAlgo"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -617,18 +633,20 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditAlgo"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="6"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="6"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyAlgo"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -723,6 +741,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/CoefStructure"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -737,19 +756,21 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditStructure"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:layout_marginBottom="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="5"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="5"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyStructure"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -773,6 +794,7 @@
                         android:layout_column="1">
 
                         <TextView
+                            android:id="@+id/Creditfondamentale21"
                             android:layout_width="54dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="1dp"
@@ -788,6 +810,7 @@
                             android:textColor="@color/black1"
                             android:textSize="10sp" />
                         <TextView
+                            android:id="@+id/Moyfondamentale21"
                             android:layout_width="59dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -870,37 +893,39 @@
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
-                                    android:layout_marginBottom="1dp"
                                     android:background="@color/purple3"
                                     android:gravity="center"
-                                    android:padding="5dp"
-                                    android:orientation="vertical">
+                                    android:orientation="vertical"
+                                    android:padding="5dp">
+
                                     <com.google.android.material.card.MaterialCardView
                                         android:layout_width="40dp"
                                         android:layout_height="20dp"
-                                        app:cardCornerRadius="5dp"
                                         android:elevation="5dp"
                                         android:theme="@style/Theme.MaterialComponents.DayNight"
-                                        app:strokeWidth="1dp"
-                                        app:strokeColor="@color/purple1">
+                                        app:cardCornerRadius="5dp"
+                                        app:strokeColor="@color/purple1"
+                                        app:strokeWidth="1dp">
+
                                         <EditText
                                             android:id="@+id/ExamenTSE"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
+                                            android:layout_gravity="center"
                                             android:background="@color/trancparent"
+                                            android:fontFamily="@font/lcdmonobold"
+                                            android:gravity="center"
                                             android:hint="Examen"
                                             android:padding="2dp"
-                                            android:layout_gravity="center"
-                                            android:gravity="center"
-                                            android:textSize="8sp"
                                             android:textAlignment="center"
                                             android:textColor="@color/purple1"
-                                            android:fontFamily="@font/lcdmonobold"/>
+                                            android:textSize="8sp" />
                                     </com.google.android.material.card.MaterialCardView>
                                 </LinearLayout>
 
 
                                 <TextView
+                                    android:id="@+id/CoefTSE"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -914,18 +939,20 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditTSE"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="2"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="2"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyTSE"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -997,6 +1024,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/CoefLangue"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -1011,19 +1039,21 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditLangue"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:layout_marginBottom="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="2"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="2"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyLangue"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -1047,6 +1077,7 @@
                         android:layout_column="1">
 
                         <TextView
+                            android:id="@+id/CreditMethodologie1"
                             android:layout_width="54dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="1dp"
@@ -1062,6 +1093,7 @@
                             android:textColor="@color/black1"
                             android:textSize="10sp" />
                         <TextView
+                            android:id="@+id/MoyMethodologie1"
                             android:layout_width="59dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -1087,19 +1119,19 @@
 
 
                         <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:fontFamily="@font/lcdmonobold"
-                                android:gravity="center"
-                                android:rotation="90"
-                                android:text="Methodologie"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/lcdmonobold"
+                            android:gravity="center"
+                            android:rotation="90"
+                            android:text="Methodologie"
                             android:letterSpacing="0.04"
-                                android:textColor="@color/black1"
-                                android:textSize="8sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                            android:textColor="@color/black1"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>
@@ -1185,6 +1217,7 @@
 
 
                         <TextView
+                            android:id="@+id/CoefPhysique"
                             android:layout_width="32dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -1199,19 +1232,21 @@
                             android:padding="5dp"/>
 
                         <TextView
+                            android:id="@+id/CreditPhysique"
                             android:layout_width="32dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
                             android:layout_marginEnd="1dp"
                             android:layout_marginBottom="1dp"
                             android:background="@color/purple3"
-                            android:gravity="center"
-                            android:text="4"
                             android:fontFamily="@font/lcdmonobold"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="4"
                             android:textColor="@color/black1"
-                            android:textSize="12sp"
-                            android:padding="5dp" />
+                            android:textSize="12sp" />
                         <TextView
+                            android:id="@+id/MoyPhysique"
                             android:layout_width="48dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -1232,6 +1267,7 @@
                         android:layout_column="1">
 
                         <TextView
+                            android:id="@+id/CreditDecouverte1"
                             android:layout_width="54dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="1dp"
@@ -1247,6 +1283,7 @@
                             android:textColor="@color/black1"
                             android:textSize="10sp" />
                         <TextView
+                            android:id="@+id/MoyDecouverte1"
                             android:layout_width="59dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -1271,18 +1308,18 @@
                             android:layout_weight="1">
 
                         <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:fontFamily="@font/lcdmonobold"
-                                android:gravity="center"
-                                android:rotation="90"
-                                android:text="Decouverte"
-                                android:textColor="@color/black1"
-                                android:textSize="8sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/lcdmonobold"
+                            android:gravity="center"
+                            android:rotation="90"
+                            android:text="Decouverte"
+                            android:textColor="@color/black1"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>
@@ -1538,6 +1575,7 @@
                                 </LinearLayout>
 
                                 <TextView
+                                    android:id="@+id/CoefAnalyse2"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -1551,18 +1589,20 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditAnalyse2"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="6"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="6"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyAnalyse2"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -1657,6 +1697,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/CoefAlgebre2"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -1671,19 +1712,21 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditAlgebre2"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:layout_marginBottom="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="4"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="4"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyAlgebre2"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -1707,6 +1750,7 @@
                         android:layout_column="1">
 
                         <TextView
+                            android:id="@+id/Creditfondamentale12"
                             android:layout_width="54dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="1dp"
@@ -1723,6 +1767,7 @@
                             android:textSize="10sp" />
 
                         <TextView
+                            android:id="@+id/Moyfondamentale12"
                             android:layout_width="59dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -1880,6 +1925,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/CoefAlgo2"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -1893,18 +1939,20 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditAlgo2"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="6"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="6"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyAlgo2"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -1999,6 +2047,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/CoefStructure2"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -2013,19 +2062,21 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditStructure2"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:layout_marginBottom="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="4"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="4"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyStructure2"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -2049,6 +2100,7 @@
                         android:layout_column="1">
 
                         <TextView
+                            android:id="@+id/Creditfondamentale22"
                             android:layout_width="54dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="1dp"
@@ -2064,6 +2116,7 @@
                             android:textColor="@color/black1"
                             android:textSize="10sp" />
                         <TextView
+                            android:id="@+id/Moyfondamentale22"
                             android:layout_width="59dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -2086,8 +2139,6 @@
                             android:layout_marginEnd="1dp"
                             android:layout_gravity="center"
                             android:layout_weight="1">
-
-
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -2201,6 +2252,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/CoefProba"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -2214,18 +2266,20 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditProba"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="3"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="3"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyProba"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -2282,24 +2336,27 @@
                                         android:theme="@style/Theme.MaterialComponents.DayNight"
                                         app:strokeWidth="1dp"
                                         app:strokeColor="@color/purple1">
+
                                         <EditText
-                                            android:id="@+id/ExamenTIC2"
+                                            android:id="@+id/ExamenTIC"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
-                                            android:background="@color/trancparent"
-                                            android:hint="Examen"
-                                            android:padding="2dp"
                                             android:layout_gravity="center"
+                                            android:background="@color/trancparent"
+                                            android:fontFamily="@font/lcdmonobold"
                                             android:gravity="center"
-                                            android:textSize="8sp"
+                                            android:hint="Examen"
+                                            android:inputType="number|text"
+                                            android:padding="2dp"
                                             android:textAlignment="center"
                                             android:textColor="@color/purple1"
-                                            android:fontFamily="@font/lcdmonobold"/>
+                                            android:textSize="8sp" />
                                     </com.google.android.material.card.MaterialCardView>
                                 </LinearLayout>
 
 
                                 <TextView
+                                    android:id="@+id/CoefTIC"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -2313,18 +2370,20 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditTIC"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="2"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="2"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyTIC"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -2398,6 +2457,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/CoefOPM"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -2412,19 +2472,21 @@
                                     android:padding="5dp"/>
 
                                 <TextView
+                                    android:id="@+id/CreditOPM"
                                     android:layout_width="32dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
                                     android:layout_marginEnd="1dp"
                                     android:layout_marginBottom="1dp"
                                     android:background="@color/purple3"
-                                    android:gravity="center"
-                                    android:text="2"
                                     android:fontFamily="@font/lcdmonobold"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="2"
                                     android:textColor="@color/black1"
-                                    android:textSize="12sp"
-                                    android:padding="5dp" />
+                                    android:textSize="12sp" />
                                 <TextView
+                                    android:id="@+id/MoyOPM"
                                     android:layout_width="48dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginTop="1dp"
@@ -2448,6 +2510,7 @@
                         android:layout_column="1">
 
                         <TextView
+                            android:id="@+id/CreditMethodologie2"
                             android:layout_width="54dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="1dp"
@@ -2463,6 +2526,7 @@
                             android:textColor="@color/black1"
                             android:textSize="10sp" />
                         <TextView
+                            android:id="@+id/MoyMethodologie2"
                             android:layout_width="59dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -2586,6 +2650,7 @@
 
 
                         <TextView
+                            android:id="@+id/CoefPhysique2"
                             android:layout_width="32dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -2600,19 +2665,21 @@
                             android:padding="5dp"/>
 
                         <TextView
+                            android:id="@+id/CreditPhysique2"
                             android:layout_width="32dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
                             android:layout_marginEnd="1dp"
                             android:layout_marginBottom="1dp"
                             android:background="@color/purple3"
-                            android:gravity="center"
-                            android:text="3"
                             android:fontFamily="@font/lcdmonobold"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="3"
                             android:textColor="@color/black1"
-                            android:textSize="12sp"
-                            android:padding="5dp" />
+                            android:textSize="12sp" />
                         <TextView
+                            android:id="@+id/MoyPhysique2"
                             android:layout_width="48dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -2633,6 +2700,7 @@
                         android:layout_column="1">
 
                         <TextView
+                            android:id="@+id/CreditDecouverte2"
                             android:layout_width="54dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="1dp"
@@ -2648,6 +2716,7 @@
                             android:textColor="@color/black1"
                             android:textSize="10sp" />
                         <TextView
+                            android:id="@+id/MoyDecouverte2"
                             android:layout_width="59dp"
                             android:layout_height="match_parent"
                             android:layout_marginTop="1dp"
@@ -3066,6 +3135,5 @@
             </TableLayout>
         </LinearLayout>
     </ScrollView>
-
 
 </FrameLayout>
