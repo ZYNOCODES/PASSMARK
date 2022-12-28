@@ -19,7 +19,7 @@ public class FirstyearMathInfoFragment extends Fragment {
     private EditText ExamenAnalyse,TdAnalyse,ExamenAlgebre,TdAlgebre,ExamenAlgo,TpAlgo,
             TdAlgo,ExamenStructure,Tdstructure,ExamenTSE,ExamenLangue,ExamenPhysique,TdPhysique,
             ExamenAnalyse2,TdAnalyse2,ExamenAlgebre2,TdAlgebre2,ExamenAlgo2,TpAlgo2,
-            TdAlgo2,ExamenStructure2,Tdstructure2,ExamenTIC,ExamenOPM,ExamenProba,TdProba,ExamenPhysique2,TdPhysique2;
+            TdAlgo2,ExamenStructure2,Tdstructure2,ExamenTIC,ExamenOPM,TdOPM,TpOPM,ExamenProba,TdProba,ExamenPhysique2,TdPhysique2;
     private TextView MoyAnalyse,MoyAnalyse2,MoyAlgebre,MoyAlgebre2,MoyAlgo,MoyAlgo2,MoyStructure,MoyStructure2,
             MoyTSE,MoyTIC,MoyLangue,MoyOPM,MoyPhysique,MoyPhysique2,MoyProba,
             CoefAnalyse,CoefAnalyse2,CoefAlgebre,CoefAlgebre2,CoefAlgo,CoefAlgo2,CoefStructure,CoefStructure2,
@@ -58,6 +58,9 @@ public class FirstyearMathInfoFragment extends Fragment {
         MoyenneUnite(MoyDecouverte1,MoyPhysique,CoefPhysique);
         CreditObtenu(CreditDecouverte1,MoyPhysique,CreditPhysique);
 
+        CalcMoyenneS1();
+        CalcCreditS1();
+
         //semestre2
 
         Moyenne(MoyAnalyse2,ExamenAnalyse2,TdAnalyse2);
@@ -71,7 +74,7 @@ public class FirstyearMathInfoFragment extends Fragment {
         CreditObtenu(Creditfondamentale22,MoyAlgo2,CreditAlgo2,MoyStructure2,CreditStructure2);
 
         Moyenne(MoyProba,ExamenProba,TdProba);
-        Moyenne(MoyOPM,ExamenOPM);
+        Moyenne(MoyOPM,ExamenOPM,TdOPM,TpOPM);
         Moyenne(MoyTIC,ExamenTIC);
         MoyenneUnite3(MoyMethodologie2,MoyTIC,CoefTIC,MoyOPM,CoefOPM,MoyProba,CoefProba);
         CreditObtenu(CreditMethodologie2,MoyTIC,CreditTIC,MoyOPM,CreditOPM,MoyProba,CreditProba);
@@ -80,9 +83,14 @@ public class FirstyearMathInfoFragment extends Fragment {
         MoyenneUnite(MoyDecouverte2,MoyPhysique2,CoefPhysique2);
         CreditObtenu(CreditDecouverte2,MoyPhysique2,CreditPhysique2);
 
-        CalcMoyenneS1();
         CalcMoyenneS2();
+        CalcCreditS2();
+
+        // moyenne general
         CalcMoyGeneral();
+
+        // credit general
+        CalcCreditGeneral();
         return view;
     }
     private void InisializationOfFields(){
@@ -111,6 +119,8 @@ public class FirstyearMathInfoFragment extends Fragment {
         Tdstructure2 = view.findViewById(R.id.Tdstructure2);
         ExamenTIC = view.findViewById(R.id.ExamenTIC);
         ExamenOPM = view.findViewById(R.id.ExamenOPM);
+        TdOPM = view.findViewById(R.id.TdOPM);
+        TpOPM = view.findViewById(R.id.TpOPM);
         ExamenPhysique2 = view.findViewById(R.id.ExamenPhysique2);
         TdPhysique2 = view.findViewById(R.id.TdPhysique2);
         ExamenProba = view.findViewById(R.id.ExamenProba);
@@ -452,7 +462,10 @@ public class FirstyearMathInfoFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                Moy.setText(s.toString());
+                if (!s.toString().isEmpty()){
+                    Moy.setText(s.toString());
+                }else
+                    Moy.setText("0.00");
             }
         });
 
@@ -1190,7 +1203,7 @@ public class FirstyearMathInfoFragment extends Fragment {
         });
     }
     private void CalcMoyenneS1(){
-        Moyfondamentale11.addTextChangedListener(new TextWatcher() {
+        /* Moyfondamentale11.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -1293,10 +1306,282 @@ public class FirstyearMathInfoFragment extends Fragment {
                     MoyS1.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(Moyenne)))));
                 }
             }
+        });*/
+        MoyPhysique.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a,b,c,d,e,f,g;
+                if ((!s.toString().isEmpty())
+                     && (!MoyAlgebre.getText().toString().isEmpty())
+                        && (!MoyAlgo.getText().toString().isEmpty())
+                            && (!MoyStructure.getText().toString().isEmpty())
+                                && (!MoyTSE.getText().toString().isEmpty())
+                                    && (!MoyLangue.getText().toString().isEmpty())
+                                        && (!MoyAnalyse.getText().toString().isEmpty())){
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgebre.getText().toString());
+                    c = Float.parseFloat(MoyAlgo.getText().toString());
+                    d = Float.parseFloat(MoyStructure.getText().toString());
+                    e = Float.parseFloat(MoyTSE.getText().toString());
+                    f = Float.parseFloat(MoyLangue.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse.getText().toString());
+                    moyenne = (a * Integer.parseInt(CoefPhysique.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgebre.getText().toString()))
+                            + (c * Integer.parseInt(CoefAlgo.getText().toString()))
+                            + (d * Integer.parseInt(CoefStructure.getText().toString()))
+                            + (e * Integer.parseInt(CoefTSE.getText().toString()))
+                            + (f * Integer.parseInt(CoefLangue.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse.getText().toString()));
+                    moyenne = moyenne/18;
+                    MoyS1.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyLangue.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgebre.getText().toString().isEmpty())
+                        && (!MoyAlgo.getText().toString().isEmpty())
+                        && (!MoyStructure.getText().toString().isEmpty())
+                        && (!MoyTSE.getText().toString().isEmpty())
+                        && (!MoyPhysique.getText().toString().isEmpty())
+                        && (!MoyAnalyse.getText().toString().isEmpty())) {
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgebre.getText().toString());
+                    c = Float.parseFloat(MoyAlgo.getText().toString());
+                    d = Float.parseFloat(MoyStructure.getText().toString());
+                    e = Float.parseFloat(MoyTSE.getText().toString());
+                    f = Float.parseFloat(MoyPhysique.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse.getText().toString());
+                    moyenne = (a * Integer.parseInt(CoefLangue.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgebre.getText().toString()))
+                            + (c * Integer.parseInt(CoefAlgo.getText().toString()))
+                            + (d * Integer.parseInt(CoefStructure.getText().toString()))
+                            + (e * Integer.parseInt(CoefTSE.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse.getText().toString()));
+                    moyenne = moyenne / 18;
+                    MoyS1.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyTSE.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgebre.getText().toString().isEmpty())
+                        && (!MoyAlgo.getText().toString().isEmpty())
+                        && (!MoyStructure.getText().toString().isEmpty())
+                        && (!MoyLangue.getText().toString().isEmpty())
+                        && (!MoyPhysique.getText().toString().isEmpty())
+                        && (!MoyAnalyse.getText().toString().isEmpty())) {
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgebre.getText().toString());
+                    c = Float.parseFloat(MoyAlgo.getText().toString());
+                    d = Float.parseFloat(MoyStructure.getText().toString());
+                    e = Float.parseFloat(MoyLangue.getText().toString());
+                    f = Float.parseFloat(MoyPhysique.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse.getText().toString());
+                    moyenne = (a * Integer.parseInt(CoefTSE.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgebre.getText().toString()))
+                            + (c * Integer.parseInt(CoefAlgo.getText().toString()))
+                            + (d * Integer.parseInt(CoefStructure.getText().toString()))
+                            + (e * Integer.parseInt(CoefLangue.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse.getText().toString()));
+                    moyenne = moyenne / 18;
+                    MoyS1.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyStructure.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgebre.getText().toString().isEmpty())
+                        && (!MoyAlgo.getText().toString().isEmpty())
+                        && (!MoyTSE.getText().toString().isEmpty())
+                        && (!MoyLangue.getText().toString().isEmpty())
+                        && (!MoyPhysique.getText().toString().isEmpty())
+                        && (!MoyAnalyse.getText().toString().isEmpty())) {
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgebre.getText().toString());
+                    c = Float.parseFloat(MoyAlgo.getText().toString());
+                    d = Float.parseFloat(MoyTSE.getText().toString());
+                    e = Float.parseFloat(MoyLangue.getText().toString());
+                    f = Float.parseFloat(MoyPhysique.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse.getText().toString());
+                    moyenne = (a * Integer.parseInt(CoefStructure.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgebre.getText().toString()))
+                            + (c * Integer.parseInt(CoefAlgo.getText().toString()))
+                            + (d * Integer.parseInt(CoefTSE.getText().toString()))
+                            + (e * Integer.parseInt(CoefLangue.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse.getText().toString()));
+                    moyenne = moyenne / 18;
+                    MoyS1.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyAlgo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgebre.getText().toString().isEmpty())
+                        && (!MoyStructure.getText().toString().isEmpty())
+                        && (!MoyTSE.getText().toString().isEmpty())
+                        && (!MoyLangue.getText().toString().isEmpty())
+                        && (!MoyPhysique.getText().toString().isEmpty())
+                        && (!MoyAnalyse.getText().toString().isEmpty())) {
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgebre.getText().toString());
+                    c = Float.parseFloat(MoyStructure.getText().toString());
+                    d = Float.parseFloat(MoyTSE.getText().toString());
+                    e = Float.parseFloat(MoyLangue.getText().toString());
+                    f = Float.parseFloat(MoyPhysique.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse.getText().toString());
+                    moyenne = (a * Integer.parseInt(CoefAlgo.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgebre.getText().toString()))
+                            + (c * Integer.parseInt(CoefStructure.getText().toString()))
+                            + (d * Integer.parseInt(CoefTSE.getText().toString()))
+                            + (e * Integer.parseInt(CoefLangue.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse.getText().toString()));
+                    moyenne = moyenne / 18;
+                    MoyS1.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyAlgebre.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgo.getText().toString().isEmpty())
+                        && (!MoyStructure.getText().toString().isEmpty())
+                        && (!MoyTSE.getText().toString().isEmpty())
+                        && (!MoyLangue.getText().toString().isEmpty())
+                        && (!MoyPhysique.getText().toString().isEmpty())
+                        && (!MoyAnalyse.getText().toString().isEmpty())) {
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgo.getText().toString());
+                    c = Float.parseFloat(MoyStructure.getText().toString());
+                    d = Float.parseFloat(MoyTSE.getText().toString());
+                    e = Float.parseFloat(MoyLangue.getText().toString());
+                    f = Float.parseFloat(MoyPhysique.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse.getText().toString());
+                    moyenne = (a * Integer.parseInt(CoefAlgebre.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgo.getText().toString()))
+                            + (c * Integer.parseInt(CoefStructure.getText().toString()))
+                            + (d * Integer.parseInt(CoefTSE.getText().toString()))
+                            + (e * Integer.parseInt(CoefLangue.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse.getText().toString()));
+                    moyenne = moyenne / 18;
+                    MoyS1.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyAnalyse.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgo.getText().toString().isEmpty())
+                        && (!MoyStructure.getText().toString().isEmpty())
+                        && (!MoyTSE.getText().toString().isEmpty())
+                        && (!MoyLangue.getText().toString().isEmpty())
+                        && (!MoyPhysique.getText().toString().isEmpty())
+                        && (!MoyAlgebre.getText().toString().isEmpty())) {
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgo.getText().toString());
+                    c = Float.parseFloat(MoyStructure.getText().toString());
+                    d = Float.parseFloat(MoyTSE.getText().toString());
+                    e = Float.parseFloat(MoyLangue.getText().toString());
+                    f = Float.parseFloat(MoyPhysique.getText().toString());
+                    g = Float.parseFloat(MoyAlgebre.getText().toString());
+                    moyenne = (a * Integer.parseInt(CoefAnalyse.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgo.getText().toString()))
+                            + (c * Integer.parseInt(CoefStructure.getText().toString()))
+                            + (d * Integer.parseInt(CoefTSE.getText().toString()))
+                            + (e * Integer.parseInt(CoefLangue.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique.getText().toString()))
+                            + (g * Integer.parseInt(CoefAlgebre.getText().toString()));
+                    moyenne = moyenne / 18;
+                    MoyS1.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
         });
     }
     private void CalcMoyenneS2(){
-        Moyfondamentale12.addTextChangedListener(new TextWatcher() {
+        /*Moyfondamentale12.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -1399,6 +1684,630 @@ public class FirstyearMathInfoFragment extends Fragment {
                     MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(Moyenne)))));
                 }
             }
+        });*/
+        MoyPhysique2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a,b,c,d,e,f,g,h;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgebre2.getText().toString().isEmpty())
+                        && (!MoyAlgo2.getText().toString().isEmpty())
+                        && (!MoyStructure2.getText().toString().isEmpty())
+                        && (!MoyTIC.getText().toString().isEmpty())
+                        && (!MoyOPM.getText().toString().isEmpty())
+                        && (!MoyAnalyse2.getText().toString().isEmpty())
+                        && (!MoyProba.getText().toString().isEmpty())){
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgebre2.getText().toString());
+                    c = Float.parseFloat(MoyAlgo2.getText().toString());
+                    d = Float.parseFloat(MoyStructure2.getText().toString());
+                    e = Float.parseFloat(MoyTIC.getText().toString());
+                    f = Float.parseFloat(MoyOPM.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse2.getText().toString());
+                    h =Float.parseFloat(MoyProba.getText().toString());
+                    moyenne = (a * Integer.parseInt(CoefPhysique2.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgebre2.getText().toString()))
+                            + (c * Integer.parseInt(CoefAlgo2.getText().toString()))
+                            + (d * Integer.parseInt(CoefStructure2.getText().toString()))
+                            + (e * Integer.parseInt(CoefTIC.getText().toString()))
+                            + (f * Integer.parseInt(CoefOPM.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse2.getText().toString()))
+                            + (h * Integer.parseInt(CoefProba.getText().toString()));
+                    moyenne = moyenne/18;
+                    MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyOPM.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g, h;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgebre2.getText().toString().isEmpty())
+                        && (!MoyAlgo2.getText().toString().isEmpty())
+                        && (!MoyStructure2.getText().toString().isEmpty())
+                        && (!MoyTIC.getText().toString().isEmpty())
+                        && (!MoyPhysique2.getText().toString().isEmpty())
+                        && (!MoyAnalyse2.getText().toString().isEmpty())
+                        && (!MoyProba.getText().toString().isEmpty())) {
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgebre2.getText().toString());
+                    c = Float.parseFloat(MoyAlgo2.getText().toString());
+                    d = Float.parseFloat(MoyStructure2.getText().toString());
+                    e = Float.parseFloat(MoyTIC.getText().toString());
+                    f = Float.parseFloat(MoyPhysique2.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse2.getText().toString());
+                    h = Float.parseFloat(MoyProba.getText().toString());
+                    moyenne = (a * Integer.parseInt(CoefOPM.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgebre2.getText().toString()))
+                            + (c * Integer.parseInt(CoefAlgo2.getText().toString()))
+                            + (d * Integer.parseInt(CoefStructure2.getText().toString()))
+                            + (e * Integer.parseInt(CoefTIC.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique2.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse2.getText().toString()))
+                            + (h * Integer.parseInt(CoefProba.getText().toString()));
+                    moyenne = moyenne / 18;
+                    MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyTIC.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g, h;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgebre2.getText().toString().isEmpty())
+                        && (!MoyAlgo2.getText().toString().isEmpty())
+                        && (!MoyStructure2.getText().toString().isEmpty())
+                        && (!MoyOPM.getText().toString().isEmpty())
+                        && (!MoyPhysique2.getText().toString().isEmpty())
+                        && (!MoyAnalyse2.getText().toString().isEmpty())
+                        && (!MoyProba.getText().toString().isEmpty())) {
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgebre2.getText().toString());
+                    c = Float.parseFloat(MoyAlgo2.getText().toString());
+                    d = Float.parseFloat(MoyStructure2.getText().toString());
+                    e = Float.parseFloat(MoyOPM.getText().toString());
+                    f = Float.parseFloat(MoyPhysique2.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse2.getText().toString());
+                    h = Float.parseFloat(MoyProba.getText().toString());
+                    moyenne = (a * Integer.parseInt(CoefTIC.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgebre2.getText().toString()))
+                            + (c * Integer.parseInt(CoefAlgo2.getText().toString()))
+                            + (d * Integer.parseInt(CoefStructure2.getText().toString()))
+                            + (e * Integer.parseInt(CoefOPM.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique2.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse2.getText().toString()))
+                            + (h * Integer.parseInt(CoefProba.getText().toString()));
+                    moyenne = moyenne / 18;
+                    MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyStructure2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g, h;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgebre2.getText().toString().isEmpty())
+                        && (!MoyAlgo2.getText().toString().isEmpty())
+                        && (!MoyTIC.getText().toString().isEmpty())
+                        && (!MoyOPM.getText().toString().isEmpty())
+                        && (!MoyPhysique2.getText().toString().isEmpty())
+                        && (!MoyAnalyse2.getText().toString().isEmpty())
+                        && (!MoyProba.getText().toString().isEmpty())) {
+
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgebre2.getText().toString());
+                    c = Float.parseFloat(MoyAlgo2.getText().toString());
+                    d = Float.parseFloat(MoyTIC.getText().toString());
+                    e = Float.parseFloat(MoyOPM.getText().toString());
+                    f = Float.parseFloat(MoyPhysique2.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse2.getText().toString());
+                    h = Float.parseFloat(MoyProba.getText().toString());
+
+                    moyenne = (a * Integer.parseInt(CoefStructure2.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgebre2.getText().toString()))
+                            + (c * Integer.parseInt(CoefAlgo2.getText().toString()))
+                            + (d * Integer.parseInt(CoefTIC.getText().toString()))
+                            + (e * Integer.parseInt(CoefOPM.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique2.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse2.getText().toString()))
+                            + (h * Integer.parseInt(CoefProba.getText().toString()));
+
+                    moyenne = moyenne / 18;
+                    MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyAlgo2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g, h;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgebre2.getText().toString().isEmpty())
+                        && (!MoyStructure2.getText().toString().isEmpty())
+                        && (!MoyTIC.getText().toString().isEmpty())
+                        && (!MoyOPM.getText().toString().isEmpty())
+                        && (!MoyPhysique2.getText().toString().isEmpty())
+                        && (!MoyAnalyse2.getText().toString().isEmpty())
+                        && (!MoyProba.getText().toString().isEmpty())) {
+
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgebre2.getText().toString());
+                    c = Float.parseFloat(MoyStructure2.getText().toString());
+                    d = Float.parseFloat(MoyTIC.getText().toString());
+                    e = Float.parseFloat(MoyOPM.getText().toString());
+                    f = Float.parseFloat(MoyPhysique2.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse2.getText().toString());
+                    h = Float.parseFloat(MoyProba.getText().toString());
+
+                    moyenne = (a * Integer.parseInt(CoefAlgo2.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgebre2.getText().toString()))
+                            + (c * Integer.parseInt(CoefStructure2.getText().toString()))
+                            + (d * Integer.parseInt(CoefTIC.getText().toString()))
+                            + (e * Integer.parseInt(CoefOPM.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique2.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse2.getText().toString()))
+                            + (h * Integer.parseInt(CoefProba.getText().toString()));
+
+                    moyenne = moyenne / 18;
+                    MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyAlgebre2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g, h;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgo2.getText().toString().isEmpty())
+                        && (!MoyStructure2.getText().toString().isEmpty())
+                        && (!MoyTIC.getText().toString().isEmpty())
+                        && (!MoyOPM.getText().toString().isEmpty())
+                        && (!MoyPhysique2.getText().toString().isEmpty())
+                        && (!MoyAnalyse2.getText().toString().isEmpty())
+                        && (!MoyProba.getText().toString().isEmpty())){
+
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgo2.getText().toString());
+                    c = Float.parseFloat(MoyStructure2.getText().toString());
+                    d = Float.parseFloat(MoyTIC.getText().toString());
+                    e = Float.parseFloat(MoyOPM.getText().toString());
+                    f = Float.parseFloat(MoyPhysique2.getText().toString());
+                    g = Float.parseFloat(MoyAnalyse2.getText().toString());
+                    h = Float.parseFloat(MoyProba.getText().toString());
+
+                    moyenne = (a * Integer.parseInt(CoefAlgebre2.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgo2.getText().toString()))
+                            + (c * Integer.parseInt(CoefStructure2.getText().toString()))
+                            + (d * Integer.parseInt(CoefTIC.getText().toString()))
+                            + (e * Integer.parseInt(CoefOPM.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique2.getText().toString()))
+                            + (g * Integer.parseInt(CoefAnalyse2.getText().toString()))
+                            + (h * Integer.parseInt(CoefProba.getText().toString()));
+
+                    moyenne = moyenne / 18;
+                    MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyAnalyse2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g, h;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgo2.getText().toString().isEmpty())
+                        && (!MoyStructure2.getText().toString().isEmpty())
+                        && (!MoyTIC.getText().toString().isEmpty())
+                        && (!MoyOPM.getText().toString().isEmpty())
+                        && (!MoyPhysique2.getText().toString().isEmpty())
+                        && (!MoyAlgebre2.getText().toString().isEmpty())
+                        && (!MoyProba.getText().toString().isEmpty())){
+
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgo2.getText().toString());
+                    c = Float.parseFloat(MoyStructure2.getText().toString());
+                    d = Float.parseFloat(MoyTIC.getText().toString());
+                    e = Float.parseFloat(MoyOPM.getText().toString());
+                    f = Float.parseFloat(MoyPhysique2.getText().toString());
+                    g = Float.parseFloat(MoyAlgebre2.getText().toString());
+                    h = Float.parseFloat(MoyProba.getText().toString());
+
+                    moyenne = (a * Integer.parseInt(CoefAnalyse2.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgo2.getText().toString()))
+                            + (c * Integer.parseInt(CoefStructure2.getText().toString()))
+                            + (d * Integer.parseInt(CoefTIC.getText().toString()))
+                            + (e * Integer.parseInt(CoefOPM.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique2.getText().toString()))
+                            + (g * Integer.parseInt(CoefAlgebre2.getText().toString()))
+                            + (h * Integer.parseInt(CoefProba.getText().toString()));
+
+                    moyenne = moyenne / 18;
+                    MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+        MoyProba.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                float moyenne;
+                float a, b, c, d, e, f, g, h;
+                if ((!s.toString().isEmpty())
+                        && (!MoyAlgo2.getText().toString().isEmpty())
+                        && (!MoyStructure2.getText().toString().isEmpty())
+                        && (!MoyTIC.getText().toString().isEmpty())
+                        && (!MoyOPM.getText().toString().isEmpty())
+                        && (!MoyPhysique2.getText().toString().isEmpty())
+                        && (!MoyAlgebre2.getText().toString().isEmpty())
+                        && (!MoyAnalyse2.getText().toString().isEmpty())){
+
+                    a = Float.parseFloat(s.toString());
+                    b = Float.parseFloat(MoyAlgo2.getText().toString());
+                    c = Float.parseFloat(MoyStructure2.getText().toString());
+                    d = Float.parseFloat(MoyTIC.getText().toString());
+                    e = Float.parseFloat(MoyOPM.getText().toString());
+                    f = Float.parseFloat(MoyPhysique2.getText().toString());
+                    g = Float.parseFloat(MoyAlgebre2.getText().toString());
+                    h = Float.parseFloat(MoyAnalyse2.getText().toString());
+
+                    moyenne = (a * Integer.parseInt(CoefProba.getText().toString()))
+                            + (b * Integer.parseInt(CoefAlgo2.getText().toString()))
+                            + (c * Integer.parseInt(CoefStructure2.getText().toString()))
+                            + (d * Integer.parseInt(CoefTIC.getText().toString()))
+                            + (e * Integer.parseInt(CoefOPM.getText().toString()))
+                            + (f * Integer.parseInt(CoefPhysique2.getText().toString()))
+                            + (g * Integer.parseInt(CoefAlgebre2.getText().toString()))
+                            + (h * Integer.parseInt(CoefAnalyse2.getText().toString()));
+
+                    moyenne = moyenne / 18;
+                    MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
+                }
+            }
+        });
+    }
+    private void CalcCreditS1(){
+        Creditfondamentale11.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(MoyS1.getText().toString()) >= 10){
+                    CreditS1.setText("30");
+                }else{
+                    int Credit;
+                    if ((!s.toString().isEmpty())
+                            &&(!Creditfondamentale21.getText().toString().isEmpty())
+                            &&(!CreditMethodologie1.getText().toString().isEmpty())
+                            &&(!CreditDecouverte1.getText().toString().isEmpty())) {
+                        int a = Integer.parseInt(s.toString());
+                        int b = Integer.parseInt(Creditfondamentale21.getText().toString());
+                        int c = Integer.parseInt(CreditMethodologie1.getText().toString());
+                        int d = Integer.parseInt(CreditDecouverte1.getText().toString());
+                        Credit = (a + b + c + d);
+                        CreditS1.setText(String.valueOf(Credit));
+                    }
+                }
+            }
+        });
+        Creditfondamentale21.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(MoyS1.getText().toString()) >= 10){
+                    CreditS1.setText("30");
+                }else{
+                    int Credit;
+                    if ((!s.toString().isEmpty())
+                            &&(!Creditfondamentale11.getText().toString().isEmpty())
+                            &&(!CreditMethodologie1.getText().toString().isEmpty())
+                            &&(!CreditDecouverte1.getText().toString().isEmpty())) {
+                        int a = Integer.parseInt(s.toString());
+                        int b = Integer.parseInt(Creditfondamentale11.getText().toString());
+                        int c = Integer.parseInt(CreditMethodologie1.getText().toString());
+                        int d = Integer.parseInt(CreditDecouverte1.getText().toString());
+                        Credit = (a + b + c + d);
+                        CreditS1.setText(String.valueOf(Credit));
+                    }
+                }
+
+            }
+        });
+        CreditMethodologie1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(MoyS1.getText().toString()) >= 10){
+                    CreditS1.setText("30");
+                }else{
+                    int Credit;
+                    if ((!s.toString().isEmpty())
+                            &&(!Creditfondamentale11.getText().toString().isEmpty())
+                            &&(!Creditfondamentale21.getText().toString().isEmpty())
+                            &&(!CreditDecouverte1.getText().toString().isEmpty())) {
+                        int a = Integer.parseInt(s.toString());
+                        int b = Integer.parseInt(Creditfondamentale11.getText().toString());
+                        int c = Integer.parseInt(Creditfondamentale21.getText().toString());
+                        int d = Integer.parseInt(CreditDecouverte1.getText().toString());
+                        Credit = (a + b + c + d);
+                        CreditS1.setText(String.valueOf(Credit));
+                    }
+                }
+
+            }
+        });
+        CreditDecouverte1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(MoyS1.getText().toString()) >= 10){
+                    CreditS1.setText("30");
+                }else{
+                    int Credit;
+                    if ((!s.toString().isEmpty())
+                            &&(!Creditfondamentale11.getText().toString().isEmpty())
+                            &&(!Creditfondamentale21.getText().toString().isEmpty())
+                            &&(!CreditMethodologie1.getText().toString().isEmpty())) {
+                        int a = Integer.parseInt(s.toString());
+                        int b = Integer.parseInt(Creditfondamentale11.getText().toString());
+                        int c = Integer.parseInt(Creditfondamentale21.getText().toString());
+                        int d = Integer.parseInt(CreditMethodologie1.getText().toString());
+                        Credit = (a + b + c + d);
+                        CreditS1.setText(String.valueOf(Credit));
+                    }
+                }
+
+            }
+        });
+        MoyS1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(s.toString()) >= 10){
+                    CreditS1.setText("30");
+                }
+            }
+        });
+    }
+    private void CalcCreditS2(){
+        Creditfondamentale12.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(MoyS2.getText().toString()) >= 10){
+                    CreditS2.setText("30");
+                }else{
+                    int Credit;
+                    if ((!s.toString().isEmpty())
+                            &&(!Creditfondamentale22.getText().toString().isEmpty())
+                            &&(!CreditMethodologie2.getText().toString().isEmpty())
+                            &&(!CreditDecouverte2.getText().toString().isEmpty())) {
+                        int a = Integer.parseInt(s.toString());
+                        int b = Integer.parseInt(Creditfondamentale22.getText().toString());
+                        int c = Integer.parseInt(CreditMethodologie2.getText().toString());
+                        int d = Integer.parseInt(CreditDecouverte2.getText().toString());
+                        Credit = (a + b + c + d);
+                        CreditS2.setText(String.valueOf(Credit));
+                    }
+                }
+            }
+        });
+        Creditfondamentale22.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(MoyS2.getText().toString()) >= 10){
+                    CreditS2.setText("30");
+                }else{
+                    int Credit;
+                    if ((!s.toString().isEmpty())
+                            &&(!Creditfondamentale12.getText().toString().isEmpty())
+                            &&(!CreditMethodologie2.getText().toString().isEmpty())
+                            &&(!CreditDecouverte2.getText().toString().isEmpty())) {
+                        int a = Integer.parseInt(s.toString());
+                        int b = Integer.parseInt(Creditfondamentale12.getText().toString());
+                        int c = Integer.parseInt(CreditMethodologie2.getText().toString());
+                        int d = Integer.parseInt(CreditDecouverte2.getText().toString());
+                        Credit = (a + b + c + d);
+                        CreditS2.setText(String.valueOf(Credit));
+                    }
+                }
+
+            }
+        });
+        CreditMethodologie2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(MoyS2.getText().toString()) >= 10){
+                    CreditS2.setText("30");
+                }else{
+                    int Credit;
+                    if ((!s.toString().isEmpty())
+                            &&(!Creditfondamentale12.getText().toString().isEmpty())
+                            &&(!Creditfondamentale22.getText().toString().isEmpty())
+                            &&(!CreditDecouverte2.getText().toString().isEmpty())) {
+                        int a = Integer.parseInt(s.toString());
+                        int b = Integer.parseInt(Creditfondamentale12.getText().toString());
+                        int c = Integer.parseInt(Creditfondamentale22.getText().toString());
+                        int d = Integer.parseInt(CreditDecouverte2.getText().toString());
+                        Credit = (a + b + c + d);
+                        CreditS2.setText(String.valueOf(Credit));
+                    }
+                }
+
+            }
+        });
+        CreditDecouverte2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(MoyS2.getText().toString()) >= 10){
+                    CreditS2.setText("30");
+                }else{
+                    int Credit;
+                    if ((!s.toString().isEmpty())
+                            &&(!Creditfondamentale12.getText().toString().isEmpty())
+                            &&(!Creditfondamentale22.getText().toString().isEmpty())
+                            &&(!CreditMethodologie2.getText().toString().isEmpty())) {
+                        int a = Integer.parseInt(s.toString());
+                        int b = Integer.parseInt(Creditfondamentale12.getText().toString());
+                        int c = Integer.parseInt(Creditfondamentale22.getText().toString());
+                        int d = Integer.parseInt(CreditMethodologie2.getText().toString());
+                        Credit = (a + b + c + d);
+                        CreditS2.setText(String.valueOf(Credit));
+                    }
+                }
+
+            }
+        });
+        MoyS2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(s.toString()) >= 10){
+                    CreditS2.setText("30");
+                }
+            }
         });
     }
     private void CalcMoyGeneral(){
@@ -1445,4 +2354,75 @@ public class FirstyearMathInfoFragment extends Fragment {
             }
         });
     }
+    private void CalcCreditGeneral(){
+        CreditS1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(MoyGeneral.getText().toString()) >= 10){
+                    CreditGeneral.setText("60");
+                }else{
+                    int Credit;
+                    if ((!s.toString().isEmpty())
+                            &&(!CreditS2.getText().toString().isEmpty())) {
+                        int a = Integer.parseInt(s.toString());
+                        int b = Integer.parseInt(CreditS2.getText().toString());
+                        Credit = (a + b);
+                        CreditGeneral.setText(String.valueOf(Credit));
+                    }
+                }
+            }
+        });
+        CreditS2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(MoyGeneral.getText().toString()) >= 10){
+                    CreditGeneral.setText("60");
+                }else{
+                    int Credit;
+                    if ((!s.toString().isEmpty())
+                            &&(!CreditS1.getText().toString().isEmpty())) {
+                        int a = Integer.parseInt(s.toString());
+                        int b = Integer.parseInt(CreditS1.getText().toString());
+                        Credit = (a + b);
+                        CreditGeneral.setText(String.valueOf(Credit));
+                    }
+                }
+
+            }
+        });
+        MoyGeneral.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (Float.parseFloat(s.toString()) >= 10){
+                    CreditGeneral.setText("60");
+                }
+            }
+        });
+    }
+
+
 }
