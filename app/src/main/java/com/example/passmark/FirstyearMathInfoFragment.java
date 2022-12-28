@@ -3,19 +3,25 @@ package com.example.passmark;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
 public class FirstyearMathInfoFragment extends Fragment {
     private View view;
+    private ImageView Back;
     private EditText ExamenAnalyse,TdAnalyse,ExamenAlgebre,TdAlgebre,ExamenAlgo,TpAlgo,
             TdAlgo,ExamenStructure,Tdstructure,ExamenTSE,ExamenLangue,ExamenPhysique,TdPhysique,
             ExamenAnalyse2,TdAnalyse2,ExamenAlgebre2,TdAlgebre2,ExamenAlgo2,TpAlgo2,
@@ -36,6 +42,20 @@ public class FirstyearMathInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_firstyear_math_info, container, false);
         InisializationOfFields();
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
+                fragmentTransaction.replace(R.id.fragment_container, new InfoDepartmentFragment())
+                        .addToBackStack("tag");
+                fragmentManager.popBackStack();
+                fragmentTransaction.commit();
+
+
+            }
+        });
 
         //semestre1
 
@@ -93,7 +113,9 @@ public class FirstyearMathInfoFragment extends Fragment {
         CalcCreditGeneral();
         return view;
     }
+
     private void InisializationOfFields(){
+        Back = view.findViewById(R.id.Back);
         ExamenAnalyse = view.findViewById(R.id.ExamenAnalyse);
         TdAnalyse = view.findViewById(R.id.TdAnalyse);
         ExamenAlgebre = view.findViewById(R.id.ExamenAlgebre);

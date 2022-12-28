@@ -11,6 +11,13 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/exit_to_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/enter_from_right</item>
+        <item name="android:activityCloseEnterAnimation">@anim/enter_from_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/exit_to_left</item>
     </style>
 </resources>
