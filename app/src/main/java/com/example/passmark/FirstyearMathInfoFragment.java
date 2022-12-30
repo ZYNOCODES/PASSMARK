@@ -22,6 +22,7 @@ import java.text.DecimalFormat;
 public class FirstyearMathInfoFragment extends Fragment {
     private View view;
     private ImageView Back;
+    private Validator validator;
     private EditText ExamenAnalyse,TdAnalyse,ExamenAlgebre,TdAlgebre,ExamenAlgo,TpAlgo,
             TdAlgo,ExamenStructure,Tdstructure,ExamenTSE,ExamenLangue,ExamenPhysique,TdPhysique,
             ExamenAnalyse2,TdAnalyse2,ExamenAlgebre2,TdAlgebre2,ExamenAlgo2,TpAlgo2,

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+    app:cardCornerRadius="30dp"
+    app:strokeWidth="4dp"
+    android:layout_gravity="center"
+    app:strokeColor="@color/purple1"
+    app:cardBackgroundColor="@color/purple3">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="20dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="10dp" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter la note de "
+                android:textAlignment="textStart"
+                android:paddingStart="2dp"
+                android:textColor="@color/black1"
+                android:fontFamily="@font/lcdmonobold" />
+            <TextView
+                android:id="@+id/Module"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Analyse"
+                android:textSize="18sp"
+                android:textAlignment="textStart"
+                android:paddingStart="2dp"
+                android:textColor="@color/black1"
+                android:fontFamily="@font/lcdmonobold" />
+        </LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="15dp"
+            android:elevation="5dp"
+            app:strokeWidth="2dp"
+            android:layout_gravity="center"
+            android:theme="@style/Theme.MaterialComponents.DayNight"
+            app:strokeColor="@color/purple1"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/trancparent">
+
+            <EditText
+                android:id="@+id/TdPhysique2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/trancparent"
+                android:fontFamily="@font/lcdmonobold"
+                android:gravity="center"
+                android:hint="td"
+                android:inputType="numberDecimal"
+                android:padding="2dp"
+                android:textAlignment="center"
+                android:textColor="@color/purple1"
+                android:textSize="15sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

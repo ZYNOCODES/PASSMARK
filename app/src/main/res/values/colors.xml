@@ -12,5 +12,6 @@
     <color name="purple2">#d2d2ff</color>
     <color name="purple3">#dad9f9</color>
     <color name="purple4">#463998</color>
+    <color name="red">#FF0000</color>
     <color name="trancparent">#00111111</color>
 </resources>

@@ -1013,7 +1013,7 @@ public class ThirdyearInfoSIQFragment extends Fragment {
                             + (e * Integer.parseInt(CoefECONUM.getText().toString()))
                             + (f * Integer.parseInt(CoefProba.getText().toString()))
                             + (g * Integer.parseInt(CoefSE.getText().toString()));
-                    moyenne = moyenne / 16;
+                    moyenne = moyenne / 17;
                     MoyS1.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
                 }
             }
@@ -1052,7 +1052,7 @@ public class ThirdyearInfoSIQFragment extends Fragment {
                             + (e * Integer.parseInt(CoefECONUM.getText().toString()))
                             + (f * Integer.parseInt(CoefProba.getText().toString()))
                             + (g * Integer.parseInt(CoefCompil.getText().toString()));
-                    moyenne = moyenne / 16;
+                    moyenne = moyenne / 17;
                     MoyS1.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
                 }
             }
@@ -1196,7 +1196,7 @@ public class ThirdyearInfoSIQFragment extends Fragment {
                             + (e * Integer.parseInt(CoefRS.getText().toString()))
                             + (g * Integer.parseInt(CoefAPP.getText().toString()))
                             + (h * Integer.parseInt(CoefProjet.getText().toString()));
-                    moyenne = moyenne/18;
+                    moyenne = moyenne/17;
                     MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
                 }
             }
@@ -1235,7 +1235,7 @@ public class ThirdyearInfoSIQFragment extends Fragment {
                             + (f * Integer.parseInt(CoefStartup.getText().toString()))
                             + (g * Integer.parseInt(CoefAPP.getText().toString()))
                             + (h * Integer.parseInt(CoefProjet.getText().toString()));
-                    moyenne = moyenne / 18;
+                    moyenne = moyenne / 17;
                     MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
                 }
             }
@@ -1277,7 +1277,7 @@ public class ThirdyearInfoSIQFragment extends Fragment {
                             + (g * Integer.parseInt(CoefAPP.getText().toString()))
                             + (h * Integer.parseInt(CoefProjet.getText().toString()));
 
-                    moyenne = moyenne / 18;
+                    moyenne = moyenne / 17;
                     MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
                 }
             }
@@ -1319,7 +1319,7 @@ public class ThirdyearInfoSIQFragment extends Fragment {
                             + (g * Integer.parseInt(CoefAPP.getText().toString()))
                             + (h * Integer.parseInt(CoefProjet.getText().toString()));
 
-                    moyenne = moyenne / 18;
+                    moyenne = moyenne / 17;
                     MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
                 }
             }
@@ -1361,7 +1361,7 @@ public class ThirdyearInfoSIQFragment extends Fragment {
                             + (g * Integer.parseInt(CoefAPP.getText().toString()))
                             + (h * Integer.parseInt(CoefProjet.getText().toString()));
 
-                    moyenne = moyenne / 18;
+                    moyenne = moyenne / 17;
                     MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
                 }
             }
@@ -1403,7 +1403,7 @@ public class ThirdyearInfoSIQFragment extends Fragment {
                             + (g * Integer.parseInt(CoefSSI.getText().toString()))
                             + (h * Integer.parseInt(CoefProjet.getText().toString()));
 
-                    moyenne = moyenne / 18;
+                    moyenne = moyenne / 17;
                     MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
                 }
             }
@@ -1445,7 +1445,7 @@ public class ThirdyearInfoSIQFragment extends Fragment {
                             + (g * Integer.parseInt(CoefSSI.getText().toString()))
                             + (h * Integer.parseInt(CoefAPP.getText().toString()));
 
-                    moyenne = moyenne / 18;
+                    moyenne = moyenne / 17;
                     MoyS2.setText(String.valueOf(Float.parseFloat((new DecimalFormat("##.##").format(moyenne)))));
                 }
             }
